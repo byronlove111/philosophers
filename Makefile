@@ -6,47 +6,45 @@
 #    By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/06 12:16:00 by abbouras          #+#    #+#              #
-#    Updated: 2025/11/06 13:01:25 by abbouras         ###   ########.fr        #
+#    Updated: 2025/11/06 13:08:36 by abbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= philo
+NAME = philo
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -pthread
-INCLUDES	= -I./include
+CC = cc
 
-SRC_DIR		= src
-UTILS_DIR	= $(SRC_DIR)/utils
-OBJ_DIR		= obj
+CFLAGS = -Wall -Wextra -Werror -pthread
 
-SRCS		= $(SRC_DIR)/main.c \
-			  $(SRC_DIR)/args.c \
-			  $(UTILS_DIR)/atoi_strict.c \
-			  $(UTILS_DIR)/error.c \
-			  $(UTILS_DIR)/time.c
+SRCS_DIR = src
 
-OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+INCS_DIR = include
+
+OBJS_DIR = obj
+
+SRCS = main.c \
+	   args.c \
+	   utils/atoi_strict.c \
+	   utils/error.c \
+	   utils/time.c
+
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 
 all: $(NAME)
 
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I$(INCS_DIR) -c $< -o $@
+
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "✓ $(NAME) compiled successfully"
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
-	@echo "✓ Object files removed"
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	@echo "✓ $(NAME) removed"
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
