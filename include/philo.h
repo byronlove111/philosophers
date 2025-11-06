@@ -54,5 +54,8 @@ typedef struct s_data
 int		validate_args(int argc, char **argv, t_data *data);
 int		ft_atoi_strict(char *str, int *result);
 int		print_error(int error_code, char *msg);
+long	get_time(void);
+long	get_elapsed_time(long start_time);
+void	ft_usleep(long ms);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/06 12:16:00 by abbouras          #+#    #+#              #
-#    Updated: 2025/11/06 12:25:47 by abbouras         ###   ########.fr        #
+#    Updated: 2025/11/06 13:01:25 by abbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ OBJ_DIR		= obj
 SRCS		= $(SRC_DIR)/main.c \
 			  $(SRC_DIR)/args.c \
 			  $(UTILS_DIR)/atoi_strict.c \
-			  $(UTILS_DIR)/error.c
+			  $(UTILS_DIR)/error.c \
+			  $(UTILS_DIR)/time.c
 
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
