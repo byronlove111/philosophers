@@ -13,15 +13,15 @@
 #include "../include/philo.h"
 
 /*
-** @param argc Nombre d'arguments (5 ou 6)
+** @param argc Number of arguments (5 or 6)
 ** @param argv Arguments:
 **             [1] number_of_philosophers
 **             [2] time_to_die (ms)
 **             [3] time_to_eat (ms)
 **             [4] time_to_sleep (ms)
-**             [5] number_of_times_each_philosopher_must_eat (optionnel)
+**             [5] number_of_times_each_philosopher_must_eat (optional)
 **
-** @return 0 si succes, 1 si erreur
+** @return 0 on success, 1 on error
 */
 int	main(int argc, char **argv)
 {

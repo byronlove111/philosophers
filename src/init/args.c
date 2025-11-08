@@ -13,9 +13,9 @@
 #include "../../include/philo.h"
 
 /*
-** Parse et assigne les arguments du programme dans la structure data
+** Parses and assigns program arguments to the data structure
 ** Arguments: nb_philo time_to_die time_to_eat time_to_sleep [must_eat_count]
-** Retourne 0 en succes, -1 en erreur
+** Returns 0 on success, -1 on error
 */
 int	parse_args(int argc, char **argv, t_data *data)
 {

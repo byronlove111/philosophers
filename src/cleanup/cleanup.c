@@ -6,14 +6,14 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:40:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 22:11:52 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 22:36:14 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
 /*
-** Detruit tous les mutex et libere toute la memoire
+** Destroys all mutexes and frees all memory
 */
 void	cleanup(t_data *data)
 {

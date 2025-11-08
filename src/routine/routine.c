@@ -13,8 +13,8 @@
 #include "../../include/philo.h"
 
 /*
-** Verifie si la simulation doit s'arreter
-** Protege par mutex pour eviter les data races
+** Checks if the simulation should stop
+** Protected by mutex to avoid data races
 */
 static int	should_stop(t_philo *philo)
 {
@@ -27,8 +27,8 @@ static int	should_stop(t_philo *philo)
 }
 
 /*
-** Routine speciale pour un seul philosophe
-** Il ne peut pas manger (une seule fourchette) donc il meurt
+** Special routine for a single philosopher
+** Cannot eat (only one fork) so dies
 */
 void	*philo_routine_single(void *arg)
 {
@@ -43,9 +43,9 @@ void	*philo_routine_single(void *arg)
 }
 
 /*
-** Routine principale d'un philosophe
-** Cycle: penser -> manger -> dormir
-** Continue jusqu'a ce que someone_died ou all_ate_enough soit vrai
+** Main routine of a philosopher
+** Cycle: think -> eat -> sleep
+** Continues until someone_died or all_ate_enough is true
 */
 void	*philo_routine(void *arg)
 {

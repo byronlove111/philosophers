@@ -13,8 +13,8 @@
 #include "../../include/philo.h"
 
 /*
-** Valide qu'une string est un nombre positif valide
-** Retourne 1 si valide, 0 sinon
+** Validates that a string is a valid positive number
+** Returns 1 if valid, 0 otherwise
 */
 static int	is_valid_positive_number(char *str)
 {
@@ -39,7 +39,7 @@ static int	is_valid_positive_number(char *str)
 }
 
 /*
-** Convertit une string en int (atoi classique)
+** Converts a string to int (classic atoi)
 */
 static int	ft_atoi(char *str)
 {
@@ -61,8 +61,8 @@ static int	ft_atoi(char *str)
 }
 
 /*
-** Valide et convertit une string en int positif
-** Retourne le nombre si valide, -1 si invalide
+** Validates and converts a string to a positive int
+** Returns the number if valid, -1 if invalid
 */
 int	ft_atoi_strict(char *str)
 {

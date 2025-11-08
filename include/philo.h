@@ -21,7 +21,7 @@
 
 typedef struct s_data	t_data;
 
-/* Structure representant un philosophe */
+/* Structure representing a philosopher */
 typedef struct s_philo
 {
 	int					id;
@@ -33,7 +33,7 @@ typedef struct s_philo
 	t_data				*data;
 }	t_philo;
 
-/* Structure contenant la config et l'etat de la simulation */
+/* Structure containing the config and state of the simulation */
 typedef struct s_data
 {
 	int					nb_philo;

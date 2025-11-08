@@ -13,8 +13,8 @@
 #include "../../include/philo.h"
 
 /*
-** Alloue et initialise les mutex des fourchettes
-** En cas d'erreur, nettoie tout ce qui a ete cree
+** Allocates and initializes fork mutexes
+** On error, cleans up everything that was created
 */
 static int	init_forks(t_data *data)
 {
@@ -39,8 +39,8 @@ static int	init_forks(t_data *data)
 }
 
 /*
-** Alloue et initialise le tableau de philosophes
-** Assigne les fourchettes gauche/droite (table ronde)
+** Allocates and initializes the philosopher array
+** Assigns left/right forks (round table)
 */
 static int	init_philos(t_data *data)
 {
@@ -67,8 +67,8 @@ static int	init_philos(t_data *data)
 }
 
 /*
-** Detruit les mutex et libere la memoire en cas d'erreur
-** forks_initialized: 1 si les forks existent, 0 sinon
+** Destroys mutexes and frees memory on error
+** forks_initialized: 1 if forks exist, 0 otherwise
 */
 static void	cleanup_init(t_data *data, int forks_initialized)
 {
@@ -89,9 +89,9 @@ static void	cleanup_init(t_data *data, int forks_initialized)
 }
 
 /*
-** Initialise toutes les ressources de la simulation
+** Initializes all simulation resources
 ** Flags -> Mutex -> Forks -> Philos
-** En cas d'erreur, nettoie tout ce qui a ete cree
+** On error, cleans up everything that was created
 */
 int	init_data(t_data *data)
 {

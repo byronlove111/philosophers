@@ -13,7 +13,7 @@
 #include "../../include/philo.h"
 
 /*
-** Attend que tous les threads se terminent
+** Waits for all threads to finish
 */
 static void	join_threads(t_data *data)
 {
@@ -29,7 +29,7 @@ static void	join_threads(t_data *data)
 }
 
 /*
-** Cree les threads philosophes
+** Creates philosopher threads
 */
 static int	create_philo_threads(t_data *data)
 {
@@ -47,8 +47,8 @@ static int	create_philo_threads(t_data *data)
 }
 
 /*
-** Cas special : 1 seul philosophe
-** Il prend une fourchette et meurt
+** Special case: 1 philosopher only
+** Takes a fork and dies
 */
 static int	handle_single_philo(t_data *data)
 {
@@ -62,8 +62,8 @@ static int	handle_single_philo(t_data *data)
 }
 
 /*
-** Lance la simulation
-** Initialise start_time, cree les threads, attend la fin
+** Starts the simulation
+** Initializes start_time, creates threads, waits for completion
 */
 int	start_simulation(t_data *data)
 {

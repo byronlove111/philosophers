@@ -6,14 +6,14 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:22:16 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 22:09:54 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 22:36:14 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
 /*
-** Le philosophe pense
+** The philosopher thinks
 */
 void	think(t_philo *philo)
 {
@@ -21,8 +21,8 @@ void	think(t_philo *philo)
 }
 
 /*
-** Prend les deux fourchettes (lock les mutex)
-** Ordre d'acquisition par index croissant pour eviter les deadlocks
+** Takes both forks (locks the mutexes)
+** Acquisition order by increasing index to avoid deadlocks
 */
 void	take_forks(t_philo *philo)
 {
@@ -46,21 +46,21 @@ void	take_forks(t_philo *philo)
 }
 
 /*
-** Le philosophe mange
-** Met a jour last_meal_time et meals_eaten (protege par mutex)
+** The philosopher eats
+** Updates last_meal_time and meals_eaten (protected by mutex)
 */
 void	eat(t_philo *philo)
 {
-	print_status(philo, "is eating");
 	pthread_mutex_lock(&philo->data->state_mutex);
 	philo->last_meal_time = get_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->data->state_mutex);
+	print_status(philo, "is eating");
 	ft_usleep(philo->data->time_to_eat);
 }
 
 /*
-** Repose les deux fourchettes (unlock les mutex)
+** Puts down both forks (unlocks the mutexes)
 */
 void	drop_forks(t_philo *philo)
 {
@@ -69,7 +69,7 @@ void	drop_forks(t_philo *philo)
 }
 
 /*
-** Le philosophe dort
+** The philosopher sleeps
 */
 void	philo_sleep(t_philo *philo)
 {

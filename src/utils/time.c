@@ -6,16 +6,16 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:40:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 22:10:13 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 22:36:14 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
 /*
-** Obtient le timestamp actuel en millisecondes
-** Utilise gettimeofday() pour une precision microseconde
-** Retourne le temps en ms depuis epoch
+** Gets the current timestamp in milliseconds
+** Uses gettimeofday() for microsecond precision
+** Returns the time in ms since epoch
 */
 
 long	get_time(void)
@@ -28,8 +28,8 @@ long	get_time(void)
 }
 
 /*
-** Calcule le temps ecoule depuis start_time
-** Retourne la difference en millisecondes
+** Calculates the elapsed time since start_time
+** Returns the difference in milliseconds
 */
 
 long	get_elapsed_time(long start_time)
@@ -38,9 +38,9 @@ long	get_elapsed_time(long start_time)
 }
 
 /*
-** Sleep precis en millisecondes
-** Evite les derives de usleep() en verifiant le temps reel
-** Utilise des micro-sleeps pour plus de precision
+** Precise sleep in milliseconds
+** Avoids usleep() drift by checking real time
+** Uses micro-sleeps for better precision
 */
 
 void	ft_usleep(long ms)

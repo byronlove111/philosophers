@@ -13,8 +13,8 @@
 #include "../../include/philo.h"
 
 /*
-** Verifie si la simulation doit s'arreter
-** Protege par mutex pour eviter les data races
+** Checks if the simulation should stop
+** Protected by mutex to avoid data races
 */
 static int	is_simulation_ended(t_data *data)
 {
@@ -27,8 +27,8 @@ static int	is_simulation_ended(t_data *data)
 }
 
 /*
-** Verifie si tous les philosophes ont mange must_eat_count fois
-** Retourne 1 si oui, 0 sinon
+** Checks if all philosophers have eaten must_eat_count times
+** Returns 1 if yes, 0 otherwise
 */
 static int	check_all_ate_enough(t_data *data)
 {
@@ -54,8 +54,8 @@ static int	check_all_ate_enough(t_data *data)
 }
 
 /*
-** Verifie si un philosophe est mort
-** Retourne 1 si mort detectee, 0 sinon
+** Checks if a philosopher has died
+** Returns 1 if death detected, 0 otherwise
 */
 static int	check_death(t_data *data)
 {
@@ -86,8 +86,8 @@ static int	check_death(t_data *data)
 }
 
 /*
-** Routine du thread monitor
-** Surveille en permanence les philosophes
+** Monitor thread routine
+** Continuously monitors philosophers
 */
 void	*monitor_routine(void *arg)
 {
