@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:49:59 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 19:35:06 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:42:57 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_data
 	int					someone_died;
 	int					all_ate_enough;
 	pthread_mutex_t		print_mutex;
-	pthread_mutex_t		death_mutex;
+	pthread_mutex_t		state_mutex;
 }	t_data;
 
 int		parse_args(int argc, char **argv, t_data *data);
@@ -66,5 +66,7 @@ void	drop_forks(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	*philo_routine(void *arg);
 void	*philo_routine_single(void *arg);
+void	*monitor_routine(void *arg);
+int		start_simulation(t_data *data);
 void	cleanup(t_data *data);
 #endif

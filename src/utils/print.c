@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:30:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 20:34:05 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 22:10:04 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void	print_status(t_philo *philo, char *status)
 	}
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
-

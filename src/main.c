@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:16:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 20:48:57 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:42:49 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	main(int argc, char **argv)
 	res = init_data(&data);
 	if (res < 0)
 		return (1);
+	res = start_simulation(&data);
 	cleanup(&data);
+	if (res < 0)
+		return (1);
 	return (0);
 }

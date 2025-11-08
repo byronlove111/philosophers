@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:22:12 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 20:36:25 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:51:28 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int	should_stop(t_philo *philo)
 {
 	int	stop;
 
-	pthread_mutex_lock(&philo->data->death_mutex);
+	pthread_mutex_lock(&philo->data->state_mutex);
 	stop = philo->data->someone_died || philo->data->all_ate_enough;
-	pthread_mutex_unlock(&philo->data->death_mutex);
+	pthread_mutex_unlock(&philo->data->state_mutex);
 	return (stop);
 }
 
@@ -52,6 +52,8 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	if (philo->id % 2 == 0)
+		ft_usleep(1);
 	while (!should_stop(philo))
 	{
 		think(philo);

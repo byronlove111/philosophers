@@ -6,7 +6,7 @@
 #    By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/06 12:16:00 by abbouras          #+#    #+#              #
-#    Updated: 2025/11/08 19:17:13 by abbouras         ###   ########.fr        #
+#    Updated: 2025/11/08 21:42:57 by abbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS = main.c \
 	   init/init.c \
 	   routine/actions.c \
 	   routine/routine.c \
+	   monitor/monitor.c \
+	   threads/threads.c \
 	   cleanup/cleanup.c \
 	   utils/atoi_strict.c \
 	   utils/error.c \

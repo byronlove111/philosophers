@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 11:50:35 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 20:14:51 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:32:57 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	cleanup_init(t_data *data, int forks_initialized)
 		free(data->forks);
 	}
 	pthread_mutex_destroy(&data->print_mutex);
-	pthread_mutex_destroy(&data->death_mutex);
+	pthread_mutex_destroy(&data->state_mutex);
 }
 
 /*
@@ -100,15 +100,15 @@ int	init_data(t_data *data)
 	data->start_time = 0;
 	if (pthread_mutex_init(&data->print_mutex, NULL) != 0)
 		return (print_error(-1, "Failed to initialize print mutex"));
-	if (pthread_mutex_init(&data->death_mutex, NULL) != 0)
+	if (pthread_mutex_init(&data->state_mutex, NULL) != 0)
 	{
 		pthread_mutex_destroy(&data->print_mutex);
-		return (print_error(-1, "Failed to initialize death mutex"));
+		return (print_error(-1, "Failed to initialize state mutex"));
 	}
 	if (init_forks(data) != 0)
 	{
 		pthread_mutex_destroy(&data->print_mutex);
-		pthread_mutex_destroy(&data->death_mutex);
+		pthread_mutex_destroy(&data->state_mutex);
 		return (-1);
 	}
 	if (init_philos(data) != 0)

@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:40:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 20:48:56 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 22:11:52 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ void	cleanup(t_data *data)
 	if (data->philos)
 		free(data->philos);
 	pthread_mutex_destroy(&data->print_mutex);
-	pthread_mutex_destroy(&data->death_mutex);
+	pthread_mutex_destroy(&data->state_mutex);
 }
-
