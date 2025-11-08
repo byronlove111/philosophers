@@ -210,7 +210,9 @@ fi
 
 # Test 5: Data races (ThreadSanitizer)
 echo -e "${YELLOW}[6] Test des data races${NC}"
-if cc -fsanitize=thread -Wall -Wextra -Werror -pthread -Iinclude src/*.c src/init/*.c src/utils/*.c -o philo_tsan 2>/dev/null; then
+if cc -fsanitize=thread -Wall -Wextra -Werror -pthread -Iinclude \
+   src/main.c src/init/*.c src/routine/*.c src/cleanup/*.c src/utils/*.c \
+   -o philo_tsan 2>/dev/null; then
     ./philo_tsan 5 800 200 200 > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}  ✓ Aucun data race détecté${NC}\n"

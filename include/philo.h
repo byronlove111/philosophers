@@ -66,4 +66,5 @@ void	drop_forks(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	*philo_routine(void *arg);
 void	*philo_routine_single(void *arg);
+void	cleanup(t_data *data);
 #endif

@@ -27,6 +27,7 @@ SRCS = main.c \
 	   init/init.c \
 	   routine/actions.c \
 	   routine/routine.c \
+	   cleanup/cleanup.c \
 	   utils/atoi_strict.c \
 	   utils/error.c \
 	   utils/print.c \
