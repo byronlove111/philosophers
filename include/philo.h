@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:49:59 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/06 12:40:56 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:35:06 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ typedef struct s_data
 	pthread_mutex_t		death_mutex;
 }	t_data;
 
-int		validate_args(int argc, char **argv, t_data *data);
-int		ft_atoi_strict(char *str, int *result);
+int		parse_args(int argc, char **argv, t_data *data);
+int		ft_atoi_strict(char *str);
 int		print_error(int error_code, char *msg);
 long	get_time(void);
 long	get_elapsed_time(long start_time);
 void	ft_usleep(long ms);
-
+int		init_data(t_data *data);
 #endif

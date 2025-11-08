@@ -6,7 +6,7 @@
 #    By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/06 12:16:00 by abbouras          #+#    #+#              #
-#    Updated: 2025/11/06 13:08:36 by abbouras         ###   ########.fr        #
+#    Updated: 2025/11/08 19:17:13 by abbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ OBJS_DIR = obj
 
 SRCS = main.c \
 	   args.c \
+	   init/init.c \
 	   utils/atoi_strict.c \
 	   utils/error.c \
 	   utils/time.c
