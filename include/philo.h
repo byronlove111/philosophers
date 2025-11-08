@@ -58,4 +58,12 @@ long	get_time(void);
 long	get_elapsed_time(long start_time);
 void	ft_usleep(long ms);
 int		init_data(t_data *data);
+void	print_status(t_philo *philo, char *status);
+void	think(t_philo *philo);
+void	take_forks(t_philo *philo);
+void	eat(t_philo *philo);
+void	drop_forks(t_philo *philo);
+void	philo_sleep(t_philo *philo);
+void	*philo_routine(void *arg);
+void	*philo_routine_single(void *arg);
 #endif

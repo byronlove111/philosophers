@@ -23,10 +23,13 @@ INCS_DIR = include
 OBJS_DIR = obj
 
 SRCS = main.c \
-	   args.c \
+	   init/args.c \
 	   init/init.c \
+	   routine/actions.c \
+	   routine/routine.c \
 	   utils/atoi_strict.c \
 	   utils/error.c \
+	   utils/print.c \
 	   utils/time.c
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
