@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:22:12 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/09 12:17:31 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:16:16 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	*philo_routine(void *arg)
 		eat(philo);
 		drop_forks(philo);
 		philo_sleep(philo);
+		usleep(1000);
 	}
 	return (NULL);
 }
