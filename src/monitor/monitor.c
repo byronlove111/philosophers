@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 21:30:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 21:35:36 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/09 11:18:14 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ static int	is_simulation_ended(t_data *data)
 	int	ended;
 
 	pthread_mutex_lock(&data->state_mutex);
-	ended = data->someone_died || data->all_ate_enough;
+	if (data->someone_died)
+		ended = 1;
+	else if (data->all_ate_enough)
+		ended = 1;
+	else
+		ended = 0;
 	pthread_mutex_unlock(&data->state_mutex);
 	return (ended);
 }
