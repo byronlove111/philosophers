@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:22:16 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/08 22:36:14 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:22:19 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	think(t_philo *philo)
 {
 	print_status(philo, "is thinking");
+	usleep(1000);
 }
 
 /*
