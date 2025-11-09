@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:40:00 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/09 11:06:24 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/09 11:20:21 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,26 @@ long	get_elapsed_time(long start_time)
 }
 
 /*
+** Checks if simulation should stop
+** Returns 1 if someone died or all ate enough, 0 otherwise
+*/
+
+static int	should_stop(t_data *data)
+{
+	int	stop;
+
+	pthread_mutex_lock(&data->state_mutex);
+	if (data->someone_died)
+		stop = 1;
+	else if (data->all_ate_enough)
+		stop = 1;
+	else
+		stop = 0;
+	pthread_mutex_unlock(&data->state_mutex);
+	return (stop);
+}
+
+/*
 ** Precise sleep in milliseconds
 ** Avoids usleep() drift by checking real time
 ** Uses micro-sleeps for better precision
@@ -49,7 +69,6 @@ void	ft_usleep(long ms, t_data *data)
 	long	start;
 	long	elapsed;
 	long	remaining;
-	int		stop;
 
 	start = get_time();
 	while (1)
@@ -60,10 +79,7 @@ void	ft_usleep(long ms, t_data *data)
 			break ;
 		if (data)
 		{
-			pthread_mutex_lock(&data->state_mutex);
-			stop = data->someone_died || data->all_ate_enough;
-			pthread_mutex_unlock(&data->state_mutex);
-			if (stop)
+			if (should_stop(data))
 				break ;
 		}
 		if (remaining > 1)
