@@ -6,7 +6,7 @@
 /*   By: abbouras <abbouras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:22:12 by abbouras          #+#    #+#             */
-/*   Updated: 2025/11/09 11:17:12 by abbouras         ###   ########.fr       */
+/*   Updated: 2025/11/09 12:17:31 by abbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,22 @@ static int	should_stop(t_philo *philo)
 		stop = 0;
 	pthread_mutex_unlock(&philo->data->state_mutex);
 	return (stop);
+}
+
+/*
+** Checks if this philosopher has eaten enough times
+** Returns 1 if yes, 0 if no or if must_eat_count is not set
+*/
+static int	has_eaten_enough(t_philo *philo)
+{
+	int	enough;
+
+	if (philo->data->must_eat_count == -1)
+		return (0);
+	pthread_mutex_lock(&philo->data->state_mutex);
+	enough = (philo->meals_eaten >= philo->data->must_eat_count);
+	pthread_mutex_unlock(&philo->data->state_mutex);
+	return (enough);
 }
 
 /*
@@ -61,6 +77,8 @@ void	*philo_routine(void *arg)
 		ft_usleep(1, philo->data);
 	while (!should_stop(philo))
 	{
+		if (has_eaten_enough(philo))
+			break ;
 		think(philo);
 		take_forks(philo);
 		eat(philo);
