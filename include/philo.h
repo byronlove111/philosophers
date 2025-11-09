@@ -56,7 +56,7 @@ int		ft_atoi_strict(char *str);
 int		print_error(int error_code, char *msg);
 long	get_time(void);
 long	get_elapsed_time(long start_time);
-void	ft_usleep(long ms);
+void	ft_usleep(long ms, t_data *data);
 int		init_data(t_data *data);
 void	print_status(t_philo *philo, char *status);
 void	think(t_philo *philo);

@@ -56,7 +56,7 @@ void	eat(t_philo *philo)
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->data->state_mutex);
 	print_status(philo, "is eating");
-	ft_usleep(philo->data->time_to_eat);
+	ft_usleep(philo->data->time_to_eat, philo->data);
 }
 
 /*
@@ -74,5 +74,5 @@ void	drop_forks(t_philo *philo)
 void	philo_sleep(t_philo *philo)
 {
 	print_status(philo, "is sleeping");
-	ft_usleep(philo->data->time_to_sleep);
+	ft_usleep(philo->data->time_to_sleep, philo->data);
 }

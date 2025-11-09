@@ -37,7 +37,7 @@ void	*philo_routine_single(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->left_fork);
 	print_status(philo, "has taken a fork");
-	ft_usleep(philo->data->time_to_die);
+	ft_usleep(philo->data->time_to_die, philo->data);
 	pthread_mutex_unlock(philo->left_fork);
 	return (NULL);
 }
@@ -53,7 +53,7 @@ void	*philo_routine(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
-		ft_usleep(1);
+		ft_usleep(1, philo->data);
 	while (!should_stop(philo))
 	{
 		think(philo);

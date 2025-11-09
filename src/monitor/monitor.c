@@ -105,7 +105,7 @@ void	*monitor_routine(void *arg)
 			pthread_mutex_unlock(&data->state_mutex);
 			break ;
 		}
-		ft_usleep(1);
+		ft_usleep(1, NULL);
 	}
 	return (NULL);
 }
